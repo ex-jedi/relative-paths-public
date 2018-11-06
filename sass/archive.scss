@@ -1,0 +1,109 @@
+// =======================================================================================
+// ** Blog Posts/Eposides  **
+// =======================================================================================
+
+@import 'bits'; //Contains variables, media queries mixins etc.
+
+.blog-archive-section {
+    background-color: $background-colour;
+    margin: $small-section-spacing auto;
+    width: 90%;
+    padding: $paragraph-spacing;
+}
+
+.archive-main-content {
+  h1 {
+    text-transform: capitalize;
+  }
+}
+
+.blog-listing-excerpt-div {
+  a {
+    @include simple-link-underline($link-colour);
+
+  }
+}
+
+// =========================================
+// ** Cats and Tags  **
+// =========================================
+
+
+.archive-categories-and-tags-section {
+  margin: $h1-spacing auto 0;
+  width: 90%;
+}
+
+
+.archive-categories-ul,
+.archive-tag-ul,
+.archive-date-ul {
+  text-align: center;
+  margin: 0 0 $h2-spacing 0;
+  padding: 0;
+  line-height: 1.5rem;
+}
+
+.archive-categories-li,
+.archive-tag-li,
+.archive-date-li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.archive-tag-li {
+  text-transform: capitalize;
+}
+
+.archive-categories-li:after,
+.archive-tag-li:after,
+.archive-date-li:after {
+content: "\00a0| ";
+color: $link-colour;
+}
+
+.archive-categories-li:last-of-type:after,
+.archive-tag-li:last-of-type:after,
+ .archive-date-li:last-of-type:after {
+content: "";
+}
+
+.archive-link {
+  @include simple-link-underline($link-colour);
+
+}
+
+//********** Paging **********
+
+.paging {
+  width: 100%;
+  text-align: center;
+}
+
+.paging-inner-div {
+  margin: .25rem 0 0;
+}
+
+.paging-link {
+  @include simple-link-underline($link-colour);
+}
+
+//******************** Firefox Styles ********************
+
+@-moz-document url-prefix(){
+
+  .blog-archive-section {
+    margin-bottom: $large-paragraph-spacing;
+  }
+
+}
+
+//******************** Edge Styles ********************
+@supports (-ms-ime-align:auto){
+
+  .blog-archive-section {
+    margin-bottom: $large-paragraph-spacing;
+  }
+
+}

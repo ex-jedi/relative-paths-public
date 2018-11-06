@@ -1,0 +1,30 @@
+<h1 class="upcoming-episodes-title">
+  <perch:content id="upcomingEpisodesTitle" type="text" label="Page Title"  />
+</h1>
+
+<perch:repeater id="upcomingEpisodes" label="Upcoming Episodes">
+  <section class="upcoming-episodes-section">
+    <div class="upcoming-episodes-image-wrapper">
+      <img class="upcoming-episodes-image" src="<perch:content id="upcoming_episodes_image" type="image" width="600" label="Episode Image" help="Square images only"  />" alt="<perch:content id="alt" type="text" label="Image description"/>"
+      sizes="30vw"
+      srcset="<perch:content type="image" id="upcoming_episodes_image" width="600" /> 600w,
+      <perch:content type="image" id="upcoming_episodes_image" width="400" /> 400w,
+      <perch:content type="image" id="upcoming_episodes_image" width="200" /> 200w">
+    </div>
+  <div class="upcoming-episodes-text-wrapper">
+    <h2 class="upcoming-episodes-title">
+      <perch:content id="upcomimgEpisodesTitle" type="text"  size="m" label="Episode Title" />
+    </h2>
+    <div class="upcoming-episodes-paragraphs">
+      <perch:content id="upcomingEpisodesText" type="textarea" editor="redactor" html="true"label="Episode Text" />
+    </div>
+    <perch:if exists="linkText">
+      <p class="read-more-link" devi>
+        <a class="read-more-link link-underline" href="<perch:content id="linkURL" type="text" size="m" label="Link URL" divider-before="Optional Link" />">
+          <perch:content id="linkText" type="text" label="Link Text"  />
+        </a>
+      </p>
+  </div>
+    </perch:if>
+  </section>
+</perch:repeater>

@@ -1,0 +1,71 @@
+<!-- Post title -->
+<h1>
+	<perch:blog id="postTitle" type="text" label="Post Title" required="true" size="l" order="1" />
+</h1>
+
+<!-- Edit Slug -->
+<perch:blog id="postSlug" type="slug" editable="true" label="Blog Post Slug" help="Perch doesn't convert this to a URL friendly format, so it'll be output as is." for="postTitle" suppress="true" order="2" />
+
+<!-- Player embed for post page-->
+<perch:if exists="mainPlayer">
+	<div class="player-embed">
+		<perch:blog id="mainPlayer" type="textarea"  html="true" divider-before="Large Player Embed" help="Large style embed, either 300, 450 or 600px." size="m" order="3" />
+	</div>
+</perch:if>
+
+<!-- Cover Image -->
+<perch:blog id="post_image" type="image" divider-before="Post Image" suppress="true" order="4" width="800" help="Square images only plx." />
+<!-- 600 px image -->
+<perch:blog id="post_image" type="image" suppress="true" width="600" />
+<!-- 400 px image -->
+<perch:blog id="post_image" type="image" suppress="true" width="400" />
+<!-- 200 px image -->
+<perch:blog id="post_image" type="image" suppress="true" width="200" />
+
+
+<!-- Excerpt Text -->
+<perch:blog id="blog-index-excerpt" type="textarea" divider-before="Blog Index Excerpt" help="This text will appear on the blog home page along with the cover image. Max 75 words." editor="redactor" html="true" order="5" suppress="true" size="m" required="true" count="words" />
+
+<!-- Text Block -->
+<div class="blog-text-block">
+  <perch:blog id="blog-post-text" type="textarea" editor="redactor" html="true"  divider-before="Blog Post Text" count="words" order="6" />
+</div>
+
+<!-- Author -->
+<div class="blog-post-date-author">
+  <time class="dt-published" itemprop="dateCreated" datetime="<perch:blog id="postDateTime" type="date" label="Date" time="true" format="Y-m-d H:i:s" divider-before="Date and Time Published" />">
+  	<perch:blog id="postDateTime" type="date" time="true" format="%d %B %Y" />
+  </time>
+
+	<perch:if exists="authorGivenName">
+		by
+		<span class="author" itemprop="creator">
+			<perch:blog id="authorGivenName" type="hidden" />
+			<perch:blog id="authorFamilyName" type="hidden" />
+		</span>
+	</perch:if>
+</div>
+
+<!-- Share this -->
+<div class="sharethis-inline-share-buttons"></div>
+
+<!-- Blocks -->
+<perch:blocks order="7">
+  <perch:block type="text" icon="link" label="Show Note Link" >
+		<perch:before>
+			<div class="post-link-div">
+				<h2>Links</h2>
+				</perch:before>
+					<p>
+						<a class="show-note-link" href="<perch:blog id="show_note_link" type="text" label="Link Url">">
+							<perch:blog id="show_note_link_linktext" type="text" label="Link Text" help="This block can be dragged up or down to reorder.">
+						</a>
+					</p>
+				<perch:after>
+			</div>
+		</perch:after>
+  </perch:block>
+</perch:blocks>
+
+<perch:categories id="categories" set="blog" divider-before="Categories" display-as="checkboxes" suppress="true" order="8">
+</perch:categories>

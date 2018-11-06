@@ -1,0 +1,15 @@
+//********** Terms and  conditions / Privacy policy pages  **********
+@import 'bits';
+
+
+// =========================================
+// ** Wrapper Classes  **
+// =========================================
+
+.legals-text-div {
+  width: 70%;
+}
+
+a {
+  @include simple-link-underline($link-colour);
+}

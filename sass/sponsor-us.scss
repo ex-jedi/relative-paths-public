@@ -1,0 +1,27 @@
+//********** About Us **********
+
+//********** Import **********
+
+@import "bits"; //Contains variables, media queries mixins etc.
+
+// =========================================
+// ** Wrapper Classes  **
+// =========================================
+
+.sponsor-us-article {
+  width: 70%;
+
+  @include breakpoint(1200) {
+    width: 85%;
+  }
+
+  @include breakpoint(900) {
+    width: 95%;
+  }
+}
+
+.sponsor-us-text {
+  a {
+    @include simple-link-underline($link-colour);
+  }
+}

@@ -1,0 +1,531 @@
+// =======================================================================================
+// ** Styles that apply to all pages across the site  **
+// =======================================================================================
+
+//**************************************** Imports  ****************************************
+
+@import "bits"; //Contains variables, media queries mixins etc.
+@import "baseline"; //Reset and normalise type stuff. Only needs to be imporded here.
+
+//******************************************************************************************
+
+// =========================================
+// ** Wrappers  **
+// =========================================
+
+html {
+  font-size: 20px;
+  overflow-x: hidden;
+}
+
+body {
+  @include font-stack;
+  color: $font-colour;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+//Hiding font till Typekit loads
+.wf-loading body {
+  visibility: hidden;
+}
+
+.wf-active body {
+  visibility: visible;
+}
+
+// =========================================
+// ** Content container and block elements **
+// =========================================
+
+main {
+  @include flex(column);
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: $large-article-spacing 0;
+  position: relative;
+  background-color: $light-background-colour;
+  border: 0;
+
+  @include breakpoint(700) {
+    padding: $article-spacing 0;
+  }
+}
+
+//********** Headings**********
+
+h1,
+h2,
+h3,
+h4 {
+  @include heading-font-stack;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+h1 {
+  font-size: $h1-size;
+  margin-bottom: $h1-spacing;
+}
+
+h2 {
+  font-size: $h2-size;
+  margin-bottom: $h2-spacing;
+}
+
+h3 {
+  margin-bottom: $h3-spacing;
+}
+
+p {
+  margin: 0 0 $paragraph-spacing;
+  line-height: 1.3rem;
+}
+
+// =========================================
+// ** Inline Elements **
+// =========================================
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+//********** Links **********
+
+a {
+  text-decoration: none;
+  color: $link-colour;
+}
+
+.link-underline {
+  transition: all $transition-duration;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 5px;
+
+  &:hover,
+  &focus {
+    border-bottom: 3px solid $link-colour;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+  }
+}
+
+// =========================================
+// ** Header  **
+// =========================================
+
+header {
+  @include flex(column);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.main-header {
+  width: 100%;
+}
+
+.header-background-image-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+
+  @media (max-width: 1000px) and (orientation: landscape) {
+    height: 100%;
+  }
+}
+
+.header-background-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+}
+
+.header-inner {
+  @include flex(column);
+  color: $light-font-colour;
+  justify-content: space-between;
+  position: relative;
+  margin: 6rem 0 0;
+
+  p {
+    font-size: 2.2rem;
+    width: 50%;
+    margin: 0 auto $h2-spacing;
+    text-align: center;
+    line-height: normal;
+
+    @include breakpoint(1500) {
+      font-size: 2rem;
+    }
+
+    @include breakpoint(1200) {
+      width: 75%;
+    }
+
+    @include breakpoint(1000) {
+      font-size: 4vw;
+    }
+
+    @include breakpoint(700) {
+      font-size: 6vw;
+      width: 85%;
+    }
+  }
+}
+
+.off-home-header-inner {
+  margin-bottom: 0;
+
+  .subscribe-bar {
+    width: 100%;
+  }
+}
+
+.header-text-title {
+  font-size: 8vw;
+  margin-bottom: $h2-spacing;
+
+  @include breakpoint(1500) {
+    font-size: 10vw;
+  }
+
+  @include breakpoint(1000) {
+    font-size: 12vw;
+  }
+}
+
+.subscribe-bar {
+  @include flex(row);
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto $section-spacing;
+  width: 50%;
+
+  @include breakpoint(1200) {
+    width: 75%;
+  }
+}
+
+.subscribe-div {
+  margin: 0;
+  flex: 1 1 auto;
+
+  @include breakpoint(400) {
+    width: 50%;
+    flex: 0 1 auto;
+    margin-bottom: $paragraph-spacing;
+  }
+}
+
+.subscribe-bar-image {
+  max-height: 45px;
+  margin: 0 auto;
+}
+
+// =========================================
+// ** Main Nav  **
+// =========================================
+
+nav {
+  @include flex(row);
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0 0 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  img {
+    margin-right: 1rem;
+    max-width: 75px;
+  }
+}
+
+.responsive-main-nav {
+  width: 100%;
+}
+
+.main-nav-link {
+  font-size: $h2-size;
+  color: $light-font-colour;
+  margin: 0 10px;
+
+  @include link-underline($light-font-colour);
+}
+
+#main-nav-current {
+  border-bottom: 3px solid $light-font-colour;
+  padding-bottom: 0;
+
+  @include breakpoint(800) {
+    border-bottom: none;
+    padding-bottom: $small-paragraph-spacing;
+  }
+}
+
+//********** Skip to content link **********
+.show-on-focus {
+  position: absolute;
+  color: $font-colour;
+  background-color: $light-background-colour;
+  padding: 10px;
+  font-size: 1.2rem;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0.5rem 0 0 0.5rem;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  &:focus {
+    z-index: 20;
+    width: auto;
+    height: auto;
+    clip: auto;
+  }
+}
+
+//********** Responsive Nav Styles **********
+
+#pull {
+  margin: 0 1rem 0;
+  padding: 0;
+  display: none;
+  visibility: hidden;
+  font-size: $h2-size;
+  z-index: 2;
+
+  @include breakpoint(800) {
+    display: block;
+    visibility: visible;
+  }
+}
+
+.nav-pull-button {
+  font-size: $h2-size;
+  color: $light-font-colour;
+  margin: 0 10px;
+  border: 0;
+}
+
+.subscribe-bar {
+  @include breakpoint(800) {
+    width: 85%;
+    margin-bottom: $large-paragraph-spacing;
+  }
+
+  @include breakpoint(700) {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  @include breakpoint(400) {
+    margin-bottom: 0;
+  }
+}
+
+.nav-logo-link {
+  img {
+    @include breakpoint(800) {
+      margin: 0 0 $paragraph-spacing;
+    }
+  }
+}
+
+.main-nav {
+  @include breakpoint(800) {
+    @include flex(row);
+    justify-content: space-between;
+    align-items: flex-start;
+    position: static;
+    z-index: 1;
+  }
+}
+
+.responsive-main-nav {
+  @include breakpoint(800) {
+    @include flex(column);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    top: -400%;
+    left: -10px;
+    right: -10px;
+    margin: 0;
+    padding: $large-h1-spacing 0 $h1-spacing;
+    background-color: $main-blue;
+    transition: top 0.8s cubic-bezier(0.72, -0.61, 0.25, 1.51);
+  }
+}
+
+.main-nav-link {
+  @include breakpoint(800) {
+    padding: $small-paragraph-spacing 0;
+    margin: 0;
+
+    &:hover,
+    &:active {
+      padding: $small-paragraph-spacing 0;
+      margin: 0;
+    }
+  }
+}
+
+.header-inner {
+  @include breakpoint(800) {
+    margin-top: $large-paragraph-spacing;
+  }
+}
+
+.nav-reveal {
+  // transform: translateY(-3rem)
+  top: -3rem;
+}
+
+// =========================================
+// ** Forms  **
+// =========================================
+
+.form-container {
+  width: 100%;
+  margin: 0 auto $section-spacing;
+  background-color: $background-colour;
+}
+
+form {
+  padding: $small-section-spacing;
+  width: 80%;
+  margin: 0 auto;
+
+  input,
+  label,
+  textarea {
+    display: block;
+    width: 100%;
+  }
+
+  label {
+    margin-bottom: 2px;
+  }
+
+  input,
+  textarea {
+    margin-bottom: $small-paragraph-spacing;
+    padding: 5px;
+    font-size: 0.75rem;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+.button {
+  input {
+    width: auto;
+  }
+}
+
+//********** Anti Spam **********
+
+.form-identification-number {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  display: none;
+  visibility: hidden;
+}
+
+// =========================================
+// ** Footer  **
+// =========================================
+
+footer {
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: $background-colour;
+  width: 100%;
+}
+
+.footer-upper {
+  @include flex(row);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  @include breakpoint(800) {
+    @include flex(column);
+    justify-content: center;
+  }
+}
+
+.footer-promo {
+  align-items: flex-end;
+}
+
+.footer-legal,
+.footer-promo {
+  @include flex(column);
+  justify-content: space-between;
+  flex: 1 1 auto;
+
+  @include breakpoint(800) {
+    align-items: center;
+    margin-bottom: $h2-spacing;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.footer-social-media-div {
+  @include flex(row);
+  justify-content: space-between;
+  flex: 2 1 auto;
+  align-items: center;
+
+  @include breakpoint(800) {
+    margin-bottom: $h2-spacing;
+    justify-content: space-around;
+    order: -1;
+  }
+}
+
+// .footer-social-media-icon {
+//   width: 70px;
+
+//   @include breakpoint(1200) {
+//     width: 50px;
+//   }
+
+//   @include breakpoint(1000) {
+//     width: 40px;
+//   }
+// }
+
+.footer-legal-link,
+.footer-promo-link {
+  @include simple-link-underline($link-colour);
+}

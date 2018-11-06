@@ -1,0 +1,11 @@
+<perch:before>
+  <div class="responsive-main-nav-wrapper">
+    <div class="responsive-main-nav" :class="{ 'nav-reveal': navPull }">
+</perch:before>
+  <a class="main-nav-link<perch:if exists="ancestor_page"> ancestor</perch:if>"<perch:if exists="current_page"> id="main-nav-current"</perch:if> href="<perch:pages id="pagePath"  />"><perch:pages id="pageNavText" /></a>
+  <perch:pages id="subitems" encode="false" />
+<perch:after>
+  </div>
+</div>
+<button class="nav-pull-button"  id="pull" @click="navPull = !navPull">Menu</button>
+</perch:after>

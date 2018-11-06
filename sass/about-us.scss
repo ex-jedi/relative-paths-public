@@ -1,0 +1,151 @@
+// =======================================================================================
+// ** About Us  **
+// =======================================================================================
+
+//********** Import **********
+
+@import "bits"; //Contains variables, media queries mixins etc.
+
+// =========================================
+// ** Wrappers  **
+// =========================================
+
+section {
+  margin-bottom: $article-spacing;
+  width: 70%;
+}
+
+// =========================================
+// ** Intro  **
+// ==================================
+
+.about-us-intro {
+  margin: 0 auto $section-spacing;
+
+  @include breakpoint(1500) {
+    width: 90%;
+  }
+
+  @include breakpoint(1200) {
+    width: 95%;
+  }
+
+  a {
+    @include simple-link-underline($link-colour);
+  }
+}
+
+// =========================================
+// ** Bio Section  **
+// =========================================
+
+.bio-section {
+  @include flex(row);
+  width: 70%;
+  margin: $article-spacing auto;
+  background-color: $background-colour;
+  border: 0;
+
+  @include breakpoint(1500) {
+    width: 90%;
+  }
+
+  @include breakpoint(1200) {
+    width: 95%;
+  }
+
+  @include breakpoint(900) {
+    @include flex(column);
+  }
+}
+
+.bio-image-wrapper {
+  flex: 0 1 35%;
+
+  @include breakpoint(1200) {
+    flex: 1 0 40%;
+  }
+
+  @include breakpoint(1000) {
+    flex: 1 0 50%;
+  }
+}
+
+.bio-image {
+  width: 100%;
+}
+
+.bio-title {
+  margin: 0;
+
+  @include breakpoint(900) {
+    margin: $h2-spacing 0;
+  }
+}
+
+.bio-text {
+  @include flex(column);
+  flex: 1 1 70%;
+  padding: 0 $small-section-spacing;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  p {
+    margin-bottom: 0;
+
+    a {
+      @include simple-link-underline($link-colour);
+    }
+  }
+
+  @include breakpoint(900) {
+    padding-bottom: $large-paragraph-spacing;
+
+    p {
+      margin-bottom: $large-paragraph-spacing;
+      line-height: 1.3rem;
+    }
+  }
+}
+
+//********** Social Media **********
+
+.social-media-link {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.website-icon {
+  width: 36px;
+}
+
+// =========================================
+// ** Contact Section  **
+// =========================================
+
+.about-us-contact-section {
+  margin: 0 auto;
+
+  @include breakpoint(1500) {
+    width: 90%;
+  }
+
+  @include breakpoint(1200) {
+    width: 95%;
+  }
+}
+
+//******************** IE Styles ********************
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  //Fixing breakout in IE.
+  .about-us-article,
+  .bio-text {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bio-text {
+    align-items: stretch;
+  }
+}

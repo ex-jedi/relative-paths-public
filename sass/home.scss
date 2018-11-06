@@ -1,0 +1,170 @@
+// =======================================================================================
+// ** For home page only.. obs.  **
+// =======================================================================================
+
+@import 'bits'; //Contains variables, media queries mixins etc.
+
+
+// =========================================
+// ** Blog listing  **
+// =========================================
+
+.blog-index-listing {
+  background-color: $background-colour;
+  line-height: 2rem;
+}
+
+.blog-listing-index-link,
+.read-more-link {
+  @include link-underline($link-colour);
+}
+
+.read-more-link {
+  line-height: 1.3;
+}
+
+.blog-listing-excerpt-div {
+
+  a {
+    @include simple-link-underline($link-colour);
+
+  }
+
+}
+//********** First In List **********
+
+.listing-first-in-set {
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin-bottom: $article-spacing;
+  padding: $paragraph-spacing;
+
+  @include breakpoint(1500  ) {
+    width: 85%;
+  }
+
+  @include breakpoint(1200) {
+    width: 95%;
+  }
+}
+
+.first-in-list-embed {
+  max-width: 600px;
+  margin: 0 auto $h1-spacing;
+
+  iframe {
+    @include breakpoint(700) {
+    max-height: 50vh;
+  }
+}
+}
+
+.first-in-list-text-wrapper {
+  padding:  0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+//********** Not First In List  **********
+
+.not-first-listing {
+  @include flex(row);
+  width: 70%;
+  margin: $article-spacing 0;
+
+  .blog-index-date-time {
+    line-height: 1.3rem;
+  }
+
+  .blog-index-listing-title,
+  p {
+    margin: 0;
+  }
+
+  @include breakpoint(1500  ) {
+    width: 85%;
+  }
+
+  @include breakpoint(1200) {
+    width: 95%;
+  }
+
+  @include breakpoint(1000) {
+    p {
+      line-height: 1.2rem;
+    }
+  }
+
+  @include breakpoint(800) {
+    @include flex(column);
+    width: 85%;
+
+    .blog-index-listing-title {
+    margin: $h2-spacing auto;
+    }
+
+    p {
+      margin-bottom: $large-paragraph-spacing;
+      line-height: 1.3rem;
+      width: 100%;
+    }
+  }
+}
+
+.blog-index-image-wrapper {
+  flex: 1 0 35%;
+
+  @include breakpoint(1200) {
+    flex: 1 0 40%;
+  }
+
+    @include breakpoint(1000) {
+    flex: 1 0 50%;
+  }
+}
+
+.blog-index-listing-image {
+  width: 100%;
+}
+
+.blog-index-text-wrapper {
+  @include flex(column);
+  flex: 1 1 auto;
+  padding: 0 $small-section-spacing;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+//********** Paging **********
+
+.paging {
+  width: 100%;
+  text-align: center;
+}
+
+.paging-inner-div {
+  margin: .25rem 0 0;
+}
+
+.paging-link {
+  @include simple-link-underline($link-colour);
+}
+
+
+//******************** IE Styles ********************
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+
+  //Weirdly stops containder being too high.
+  .not-first-listing {
+    height: 100%;
+  }
+  //Fixes text breaking out in ie.
+  .blog-index-text-wrapper {
+    width: 100%;
+    align-items: stretch;
+  }
+
+}

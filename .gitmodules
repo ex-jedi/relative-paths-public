@@ -1,0 +1,3 @@
+[submodule "perch/addons/apps/jaygeorge_perch_admin_style"]
+	path = perch/addons/apps/jaygeorge_perch_admin_style
+	url = https://github.com/JayGeorge/jaygeorge_perch_admin_style.git

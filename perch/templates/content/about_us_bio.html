@@ -1,0 +1,14 @@
+<div class="bio-image-wrapper">
+  <img class="bio-image"  src="<perch:content id="bioImage" label="Profile Image"
+  help="Square images only" type="image" width="1000"/>" alt="<perch:content id="alt" type="text" label="Image Alt Text"/>"
+  sizes="(max-width:1000px) 100vw, 30vw"
+  srcset="<perch:content type="image" id="bioImage" width="800" /> 800w,
+          <perch:content type="image" id="bioImage" width="600" /> 600w,
+          <perch:content type="image" id="bioImage" width="400" /> 400w" />
+</div>
+<div class="bio-text">
+  <h2 class="bio-title"><perch:content id="bioTitle" type="text" label="Bio Title"  /></h2>
+  <perch:content id="bio_text" type="textarea" editor="redactor" html="true" label="Bio text. Tell the world how #blessed and #humble you are."  />
+  <perch:template path="content/social-media.html" />
+</div>
+

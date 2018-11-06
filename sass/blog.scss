@@ -1,0 +1,119 @@
+// =======================================================================================
+// ** Blog Posts/Eposides  **
+// =======================================================================================
+
+@import 'bits'; //Contains variables, media queries mixins etc.
+
+
+// =========================================
+// ** Main Content  **
+// =========================================
+
+.blog-post-main {
+  width: 100%;
+  @include font-stack;
+}
+
+.blog-post-article {
+  width: 50%;
+  margin: 0 auto;
+
+  @include breakpoint(1200) {
+    width: 70%;
+  }
+
+  @include breakpoint(1000) {
+    width: 85%;
+  }
+
+  @include breakpoint(800) {
+    width: 95%;
+  }
+}
+
+.player-embed {
+  margin: 0 auto $h1-spacing;
+  max-width: 600px;
+  iframe {
+    @include breakpoint(700) {
+    max-height: 50vh;
+    }
+  }
+}
+
+.blog-text-block {
+  margin-bottom: $h1-spacing;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    @include simple-link-underline($link-colour);
+
+  }
+}
+
+.post-link-div {
+  margin-bottom: $h1-spacing;
+
+  p {
+    text-align: center;
+  }
+}
+
+.show-note-link {
+  @include link-underline($link-colour);
+
+}
+
+.blog-post-date-author {
+  margin-bottom: $h1-spacing;
+}
+
+//********** Sharing Buttons **********
+.sharethis-inline-share-buttons {
+  margin-bottom: $h1-spacing;
+}
+
+// =========================================
+// ** Cats and Tags  **
+// =========================================
+
+
+.blog-categories-and-tags-section {
+  margin-top: $h1-spacing;
+}
+
+.post-categories-ul,
+.post-tags-ul {
+  text-align: center;
+  margin: 0 0 $h2-spacing;
+  padding: 0;
+}
+
+.post-categories-li,
+.post-tags-li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+}
+
+.post-categories-li:after,
+.post-tags-li:after, {
+content: "\00a0| ";
+color: $link-colour;
+}
+
+.post-categories-li:last-of-type:after,
+.post-tags-li:last-of-type:after {
+content: "";
+}
+
+.post-categories-link,
+.post-tags-link {
+  @include link-underline($link-colour);
+
+}

@@ -1,0 +1,84 @@
+// =======================================================================================
+// ** Upcoming Episodes Page  **
+// =======================================================================================
+
+//********** Imports  **********
+
+@import "bits";
+
+// =========================================
+// ** Wrappers  **
+// =========================================
+.upcoming-episodes-section {
+  @include flex(row);
+  width: 70%;
+  margin: $article-spacing auto;
+  background-color: $background-colour;
+
+  @include breakpoint(1500) {
+    width: 90%;
+  }
+
+  @include breakpoint(1200) {
+    width: 95%;
+  }
+
+  @include breakpoint(1000) {
+    @include flex(column);
+  }
+}
+
+.upcoming-episodes-image-wrapper {
+  flex: 1 1 35%;
+
+  @include breakpoint(1500) {
+    flex: 1 0 40%;
+  }
+
+  @include breakpoint(1000) {
+    flex: 1 0 50%;
+  }
+
+  @include breakpoint(900) {
+    flex: 1;
+  }
+}
+
+.upcoming-episodes-image {
+  width: 100%;
+}
+
+.upcoming-episodes-text-wrapper {
+  @include flex(column);
+  flex: 0 1 70%;
+  padding: 0 $small-section-spacing;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  @include breakpoint(1200) {
+    h2 {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  @include breakpoint(1000) {
+    padding: $small-section-spacing;
+  }
+}
+
+h2.upcoming-episodes-title {
+  @include breakpoint(1000) {
+    margin: $small-section-spacing auto;
+  }
+}
+
+.upcoming-episodes-paragraphs {
+
+  a {
+    @include simple-link-underline($link-colour);
+  }
+}

@@ -1,0 +1,15 @@
+<a href="/">
+  <img class="header-main-logo" src="<perch:content id="main_logo" type="image" label="Main logo image." />" alt="<perch:content id="logo_alt" type="text" label="Image description" />"
+    sizes="(max-width:500px) 90vw, 500px"
+    srcset="<perch:content type="image" id="main_logo" width="500" /> 500w,
+            <perch:content type="image" id="main_logo" width="400" /> 400w,
+            <perch:content type="image" id="main_logo" width="350" /> 350w">
+</a>
+
+<perch:if exists="header_illustration">
+  <img class="header-main-logo header-illustration" src="<perch:content id="header_illustration" type="image" label="Header Illustration." />" alt="<perch:content id="illustration_alt" type="text" label="Image description" />"
+    sizes="(max-width:500px) 90vw, 500px"
+    srcset="<perch:content type="image" id="header_illustration" width="500" /> 500w,
+            <perch:content type="image" id="header_illustration" width="400" /> 400w,
+            <perch:content type="image" id="header_illustration" width="350" /> 350w">
+</perch:if>
